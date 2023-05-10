@@ -41,6 +41,8 @@ bot.command("ethereum", (ctx) => {
   command =  command.slice(9,limit)
   var rate;
   console.log(ctx.from);
+  if(command){
+
   exec(command, (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
@@ -52,6 +54,8 @@ bot.command("ethereum", (ctx) => {
     }
     console.log(`stdout: ${stdout}`);
   });
+}
+
   axios
     .get(
       `https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd`
